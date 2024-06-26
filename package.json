@@ -1,0 +1,27 @@
+{
+  "name": "M2ILEARNING2024",
+  "version": "0.0.0",
+  "description": "TOTO",
+  "main": "index.js",
+  "scripts": {
+    "test": "jtest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PGI243/M2ILEARNING2024.git"
+  },
+  "author": "PGI",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/PGI243/M2ILEARNING2024/issues"
+  },
+  "devDependencies": {
+    "jtest": "0.0.1"
+  },
+  "dependencies": {
+    "jtest": "~0.0.1"
+  },
+  "keywords": [
+    "learning"
+  ]
+}
