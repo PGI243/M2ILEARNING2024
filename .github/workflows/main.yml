@@ -2,17 +2,17 @@ name: Simple CI
 on:
 push:
 branches:
--main 
+- main 
 
 jobs:
 builds:
 runs-on: unbuntu-lastest 
 
 Steps:
--name: Checkout repository
+- name: Checkout repository
  uses: actions/checkout@v4
 
- -name: run a one-line script
+ - name: run a one-line script
   run: echo "hello, world!"
 
 
