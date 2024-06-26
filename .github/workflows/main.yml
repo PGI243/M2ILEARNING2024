@@ -7,10 +7,8 @@ on:
 jobs:
   builds:
     runs-on: unbuntu-lastest
-      steps:
-  - name: Checkout repository
-    uses: actions/checkout@v4
-  - name: run a one-line script
-    run: echo "hello, world!"
-
-
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: run a one-line script
+        run: echo "hello, world!"
