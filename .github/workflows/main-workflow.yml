@@ -1,1 +1,12 @@
+# .gitub/workflows/main-workflows.yml
+name: Main workflow
 
+on:
+  push:
+    branches:
+      - main
+
+jobs: 
+  call-reusable-workflow:
+  uses: PGI243/M2ILEARNING2024/.github/workflows/reusable-workflow.yml@main
+  
