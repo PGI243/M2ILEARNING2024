@@ -2,7 +2,7 @@
 name: Simple CI
 on: null
 env:
-  serveur: $"LT1"
+  serveur: ${{ vars.LT1 }}
   push:
     branches:
       - main
@@ -19,4 +19,4 @@ jobs:
     runs-on: unbuntu-lastest
     steps:
       - name: run a one-line script
-        run: echo $"PERSOMDP"
+        run: echo $serveur
