@@ -18,32 +18,8 @@ jobs:
         run: echo "hello, world!"
       - name: run a one-line script
         run: echo $serveurenv
-      - name: Check URL Status
-        uses: gpuliyar/check-url-action@v1.0.1
-        with:
-          # URL path to verify (Mandatory)
-          # url: https://www.m2iformation.fr/
-
-          # Initial delay before probing the URL (in milliseconds) (Optional)
-          # default value 0 - no initial delay
-          # Max allowed initial delay is 30s
-          init-delay: 1000
-
-          # Number of retries permitted. 
-          # Max allowed retry is 5 (Optional)
-          # default value 0 - no retries
-          retry-count: 3
-
-          # Amount of time to wait before retrying the activity (in milliseconds) (Optional)
-          # default value 0 - no delay
-          # Max allowed retry delay is 30s
-          retry-delay: 1000
-
-          # List of HTTP response codes that are acceptable/allowed. Separate them by ',' (commas) (Optional)
-          # default value 200
-          codes-allowed: 200,201,202
-          steps:
-          - name: Check the health and certificate date for the specified URL(s)
+        steps:
+        - name: Check the health and certificate date for the specified URL(s)
           uses: padurean/https-certificate-expiry-health-check-action@v1.0.0
           with:
           # Check the following URLs
@@ -61,5 +37,22 @@ jobs:
           max-attempts: 3 # Optional, defaults to 1
           # Delay between retries
           retry-delay: 3s # Optional, only used if max-attempts > 1
+          
+        name: Run tests on PHP application
+
+on: pull_request
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+        steps:
+          - name: Checkout on current commit
+            uses: actions/checkout@v2
         
+          - name: Install PHP dependencies
+            uses: lukekortunov/php-composer-install-and-cache@v1
+
+          - name: Run tests
+            run:  php vendor/bin/phpunit
 
