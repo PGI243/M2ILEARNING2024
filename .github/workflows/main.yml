@@ -23,6 +23,6 @@ jobs:
       - name: Check_files 
         uses: BorjaOuterelo/test-file-system-action@v0.0.1
         with:
-            path: '/var/log'
-            files: 'messages'
+            path: 'BorjaOuterelo/'
+            files: 'test-file-system-action'
 
