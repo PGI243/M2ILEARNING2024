@@ -4,45 +4,14 @@ on:
   push:
     branches:
       - main
-env:
-  serveur: ${{ vars.LT1 }}
-  pays: ${{ vars.PAYS }}
   
 jobs:
   builds:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        
-      - name: run a one-line script
-        run: echo "hello, world!"
-        
-      - name: run a one-line script
-        run: echo $serveurenv
-          steps:
-            - name: Check the health and certificate date for the specified URL(s)
-              uses: padurean/https-certificate-expiry-health-check-action@v1.0.0
-              with:
-              # Check the following URLs
-              url: https://airfrance.fr|https://google.fr
-              # Verify TLS certificate, defaults to "no" (port and max-cert-days-left are only used if this is set to "yes")
-              check-cert: no
-              # Port is only used with check-cert "yes", otherwise it can be included in the URL
-              port: 443
-              # Max number of days till cert expiration; if this value is reached, the check will fail
-              # (only used with check-cert "yes")
-              max-cert-days-left: 1
-              # Follow redirects, or just report success on 3xx reponse status codes
-              follow-redirect: no # Optional, defaults to "no"
-              # Fail this action after this many failed attempts
-              max-attempts: 3 # Optional, defaults to 1
-              # Delay between retries
-              retry-delay: 3s # Optional, only used if max-attempts > 1
+   
           steps:
             - name: Checkout on current commit
             uses: actions/checkout@v2
-        
             - name: Install PHP dependencies
             uses: lukekortunov/php-composer-install-and-cache@v1
 
