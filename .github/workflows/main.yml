@@ -20,6 +20,9 @@ jobs:
         run: echo $serveurenv
       - name: run a one-line script
         run: echo $paysenv
-
-        
+      - name: Check_files 
+        uses: BorjaOuterelo/test-file-system-action@v0.0.1
+        with:
+            path: '/root/M2ILEARNING2024'
+            files: 'file.txt,../secondfile.a'
 
