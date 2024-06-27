@@ -1,3 +1,10 @@
+
+name: Check domains
+
+on:
+  schedule:
+    - cron:  '0 8 * * *'
+
 jobs:
   hello:
     runs-on: ubuntu-latest
@@ -5,8 +12,8 @@ jobs:
     strategy:
       matrix:
         domain:
-          - https://codex.so
-          - https://editorjs.io
+          - https://m2iformation.fr
+          - https://google.fr
     steps:
       - name: Check domain SSL and registry expire date
         id: check-domain
