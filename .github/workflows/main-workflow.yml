@@ -1,12 +1,19 @@
 # .gitub/workflows/main-workflows.yml
-name: Main workflow
 
-on:
-  push:
-    branches:
-      - main
+name: Run tests on PHP application
 
-jobs: 
-  call-reusable-workflow:
-  uses: PGI243/M2ILEARNING2024/.github/workflows/reusable-workflow.yml@main
-  
+on: pull_request
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+        - name: Checkout on current commit
+          uses: actions/checkout@v2
+        
+        - name: Install PHP dependencies
+          uses: lukekortunov/php-composer-install-and-cache@v1
+
+        - name: Run tests
+          run:  php vendor/bin/phpunit
