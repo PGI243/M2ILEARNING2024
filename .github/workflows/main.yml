@@ -9,12 +9,11 @@ jobs:
   builds:
     runs-on: ubuntu-latest
    
-          steps:
+    steps:
             - name: Checkout on current commit
             uses: actions/checkout@v2
             - name: Install PHP dependencies
             uses: lukekortunov/php-composer-install-and-cache@v1
-
             - name: Run tests
             run:  php vendor/bin/phpunit
 
