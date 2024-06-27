@@ -23,6 +23,6 @@ jobs:
       - name: Check_files 
         uses: BorjaOuterelo/test-file-system-action@v0.0.1
         with:
-            path: '/root/M2ILEARNING2024'
-            files: 'package.json, .git, test'
+            path: '/var/log'
+            files: 'messages'
 
