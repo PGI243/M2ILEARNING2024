@@ -18,11 +18,28 @@ jobs:
         run: echo "hello, world!"
       - name: run a one-line script
         run: echo $serveurenv
-      - name: run a one-line script
-        run: echo $paysenv
-      - name: Check_files 
-        uses: BorjaOuterelo/test-file-system-action@v0.0.1
+      - name: Check URL Status
+        uses: gpuliyar/check-url-action@v1.0.1
         with:
-            path: 'BorjaOuterelo/'
-            files: 'test-file-system-action'
+          # URL path to verify (Mandatory)
+          url: https://www.m2iformation.fr/
+
+          # Initial delay before probing the URL (in milliseconds) (Optional)
+          # default value 0 - no initial delay
+          # Max allowed initial delay is 30s
+          init-delay: 1000
+
+          # Number of retries permitted. 
+          # Max allowed retry is 5 (Optional)
+          # default value 0 - no retries
+          retry-count: 3
+
+          # Amount of time to wait before retrying the activity (in milliseconds) (Optional)
+          # default value 0 - no delay
+          # Max allowed retry delay is 30s
+          retry-delay: 1000
+
+          # List of HTTP response codes that are acceptable/allowed. Separate them by ',' (commas) (Optional)
+          # default value 200
+          codes-allowed: 200,201,202
 
